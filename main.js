@@ -1,40 +1,24 @@
-// to do list
 window.onload = function () {
-      //variables
       let form = document.getElementById("form");
       let input = document.getElementById("input");
       let btn = document.getElementById("btn");
       let list = document.getElementById("list");
       let btnClr = document.getElementById("btnClr");
       let id = 1;
-      // listItem = {item: "todo itme", checked: false}
       let liItem = "";
       let todoList = [];
-      //button event listener
       btn.addEventListener("click", addTodoItem);
 
-      //list event listener
       list.addEventListener("click", boxChecked);
-
-      //event listener for clear list
       btnClr.addEventListener("click", clearList);
-
-//input.addEventListener("keydown", addTodoItem);
-
-
 
 if(localStorage.length < 0) {
 btnClr.style.display = "none"; //hide clear btn
       console.log("button");
       }
-
-//checking localstorage has data
 if(localStorage.length <= 0 ) {
       btnClr.style.display = "none"; //hide clear btn
-
 }
-
-//add todo item to list
 function addTodoItem() {
       if(input.value == "") {
             alert("You must enter value!");
@@ -65,8 +49,6 @@ function addTodoItem() {
                   localStorage.setItem("todoList", JSON)   
                   }
       }
-
-      //adding data to the local storage
       function addToLocalStorage() {
             if(typeof(Storage) !== "undefined") {
                   localStorage.setItem("todoList", JSON.stringify(todoList));
@@ -75,7 +57,6 @@ function addTodoItem() {
                   }
       }
 
-      //display all todo list
       function displayList() {
             list.style.borderTop = "2px solid white";
             todoList = JSON.parse(localStorage.getItem("todoList"));
@@ -95,7 +76,6 @@ function addTodoItem() {
                   });
             }
       
-            //clear list event listener
             function clearList() {
                   todoList = [];
                   localStorage.clear();
